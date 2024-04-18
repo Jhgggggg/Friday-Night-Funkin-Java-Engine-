@@ -1,4 +1,4 @@
-package Note;
+package flixel.visual.kit.objects;
 
 import java.util.Timer;
 import android.os.Handler;
