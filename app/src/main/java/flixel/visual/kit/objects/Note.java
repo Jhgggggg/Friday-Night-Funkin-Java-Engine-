@@ -1,9 +1,7 @@
 package flixel.visual.kit.objects;
 
-<<<<<<< HEAD
-=======
+
 import flixel.visual.kit.FlxSprite;
->>>>>>> 4c9f5c8 (Updated objects - Note)
 import java.util.Timer;
 import android.os.Handler;
 import java.util.TimerTask;
@@ -34,11 +32,8 @@ spawn(data);
   
 }
 
-<<<<<<< HEAD
-private Note spawn(Note note){
-=======
 private void spawn(Note note){
->>>>>>> 4c9f5c8 (Updated objects - Note)
+                   
 
 var data = note.noteData;
 var alpha = note.alphaValue;
@@ -47,7 +42,6 @@ var spawnedBool = note.wasSpawn;
 note.setAlpha(alpha);
 note.wasSpawn = spawnedBool == false ? true : false;
 
-<<<<<<< HEAD
 switch(data){
 
   // Opponent strums
@@ -65,16 +59,12 @@ switch(data){
   case 6 -> return new Note(true, false, false, 6);
   case 7 -> return new Note(true, false, false, 7);
 }
-=======
-
->>>>>>> 4c9f5c8 (Updated objects - Note)
 
   var timer = new Timer();
   var handler = new Handler();
   var task = new TimerTask(){
 
 
-<<<<<<< HEAD
    public void run(){}
     handler.post(new Runnable(){
 
@@ -86,7 +76,7 @@ switch(data){
       
     });
   }
-=======
+
    public void run(){
          
        handler.post(new Runnable(){
@@ -107,7 +97,7 @@ switch(data){
       
     
   };
->>>>>>> 4c9f5c8 (Updated objects - Note)
+
   
 }
 
