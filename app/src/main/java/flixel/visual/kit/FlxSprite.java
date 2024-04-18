@@ -3,7 +3,7 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
-import android.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import java.io.InputStream;
 
 public class FlxSprite extends AppCompatImageView {
