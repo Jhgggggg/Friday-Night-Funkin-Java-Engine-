@@ -1,7 +1,7 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/build.gradle.kts",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/src/main/java/flixel/visual/kit/FlxColor.java",
       "selection": {
         "end": {
           "column": 0,
@@ -16,5 +16,5 @@
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/build.gradle.kts"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/src/main/java/flixel/visual/kit/FlxColor.java"
 }
