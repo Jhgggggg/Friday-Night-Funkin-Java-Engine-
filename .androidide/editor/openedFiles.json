@@ -14,7 +14,22 @@
           "line": 6
         }
       }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/src/main/java/flixel/visual/kit/objects/Bar.java",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/src/main/java/flixel/visual/kit/FlxColor.java"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Friday night Funkin chat/app/src/main/java/flixel/visual/kit/objects/Bar.java"
 }
