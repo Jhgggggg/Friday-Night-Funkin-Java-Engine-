@@ -3,10 +3,11 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import androidx.appcompat.widget.AppCompatImageView;
 import java.io.InputStream;
 
-public class FlxSprite extends AppCompatImageView {
+public class FlxSprite extends ImageView {
 
       private Context context;
 

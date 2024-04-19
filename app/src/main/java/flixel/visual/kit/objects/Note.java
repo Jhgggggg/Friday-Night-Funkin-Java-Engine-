@@ -1,112 +1,86 @@
 package flixel.visual.kit.objects;
 
-
+import android.content.Context;
+import android.graphics.Color;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import flixel.visual.kit.FlxContainer;
+import flixel.visual.kit.FlxSize;
 import flixel.visual.kit.FlxSprite;
-import java.util.Timer;
-import android.os.Handler;
-import java.util.TimerTask;
-import java.lang.Runnable;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 
 public class Note extends FlxSprite {
-
-public boolean wasSpawn = false;
-public boolean wasHit = false;
-public boolean wasMissed = false;
-public float alphaValue = 1;
-public float speed = 1;
-public int noteData = 0;
-public boolean destroyed = false;
-
-
-public Note(boolean wasSpawn,boolean wasHit,boolean wasMissed,int noteData){
-
-this.wasSpawn = wasSpawn;
-this.wasHit = wasHit;
-this.wasMissed = wasMissed;
-this.noteData = noteData;
-  
-var data = this;
-
-spawn(data);
-  
-}
-
-private void spawn(Note note){
-                   
-
-var data = note.noteData;
-var alpha = note.alphaValue;
-var spawnedBool = note.wasSpawn;
-
-note.setAlpha(alpha);
-note.wasSpawn = spawnedBool == false ? true : false;
-
-switch(data){
-
-  // Opponent strums
-
-  case 0 -> return new Note(true, false, false, 0);
-  case 1 -> return new Note(true, false, false, 1);
-  case 2 -> return new Note(true, false, false, 2);
-  case 3 -> return new Note(true, false, false, 3);
-
-
-  // player Strums
-
-  case 4 -> return new Note(true, false, false, 4);
-  case 5 -> return new Note(true, false, false, 5);
-  case 6 -> return new Note(true, false, false, 6);
-  case 7 -> return new Note(true, false, false, 7);
-}
-
-  var timer = new Timer();
-  var handler = new Handler();
-  var task = new TimerTask(){
-
-
-   public void run(){}
-    handler.post(new Runnable(){
-
-    public void run(){
-
-    if(note.wasHit == true && note.wasSpawn != false || wasMissed == true){}
-      destroy(note);
-    }
+  public boolean spawned = false;
+  public boolean wasHit = false;
+  public boolean wasHitByOpponent = false;
+  public boolean wasDestroyed = false;
+  public int wasData = 0;
+  public float rotation = 0;
+  public int distance = 2000;
       
-    });
+  private Note(Context context){
+        super(context);
+  }
+      
+  private Note(Context context, AttributeSet setters){
+        super(context, setters);
+  }
+      
+  public int SWAPCOLOR = Color.BLACK;
+      
+  public ArrayList<String> noteList = new ArrayList<>(Arrays.asList("left", "down", "up", "right"));
+
+  public final Map<String, Supplier<Integer>> mapKeys =
+      new HashMap<>(4) {
+        {
+          put("NOTE_LEFT", () -> KeyEvent.KEYCODE_D);
+          put("NOTE_DOWN", () -> KeyEvent.KEYCODE_F);
+          put("NOTE_UP", () -> KeyEvent.KEYCODE_J);
+          put("NOTE_RIGHT", () -> KeyEvent.KEYCODE_K);
+        }
+      };
+      
+      
+      
+  
+
+  public void CREATE(boolean spawned,boolean wasHit,boolean wasHitByOpponent,boolean wasDestroyed,int wasData,float rotation,int distance) {
+    this.spawned = spawned;
+    this.wasHit = wasHit;
+    this.wasHitByOpponent = wasHitByOpponent;
+    this.wasDestroyed = wasDestroyed;
+    this.wasData = wasData;
+    this.rotation = rotation;
+    this.distance = distance;
+            
+    var item = this;
+            
+    spawn(item);
+  }
+      
+  private void spawn(Note note){
+            
+  var parent = (FlxContainer) getParent();
+        
+     try {
+       parent.add(note);
+     }catch(Exception e){
+           throw new RuntimeException("Null Object Reference");
+     }     
+            
+  }
+      
+  public void destroy(){
+        var parent = (ViewGroup) getParent();
+        parent.removeView(this);
+        this.wasDestroyed = true;
   }
 
-   public void run(){
-         
-       handler.post(new Runnable(){
-             public void run(){
-                   if(note.wasHit == true && note.wasSpawn != false || wasMissed == true){
-                       destroy(note);
-                   }
-             }
-       });         
-                        
-                        
-   }
-    
-
-    
-          
-    
-      
-    
-  };
-
   
-}
-
-  private void destroy(Note note){
-
-  note.wasSpawn = false;
-  note.destroyed = true;
-    
-  }
-
-
 }
