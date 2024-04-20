@@ -1,4 +1,4 @@
-name: Build
+name: Android Build CI
 
 on:
   push:
@@ -26,9 +26,3 @@ jobs:
       run: ./gradlew build.
 
       
-# Adicione esta etapa para fazer o upload dos artefatos de compilação
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: app-debug
-        path: app/build/outputs/apk/debug/app-debug.apk
